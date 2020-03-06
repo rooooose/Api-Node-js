@@ -1,5 +1,6 @@
 import '../css/app.scss';
-import Background from './background';
+import Map_countries from './map_countries';
+import * as d3 from "d3";
 
 
 class App {
@@ -9,7 +10,7 @@ class App {
 
     initApp () {
       // Start application
-      new Background();
+      new Map_countries();
       
     }
 }

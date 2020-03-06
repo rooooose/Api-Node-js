@@ -1,0 +1,18 @@
+div#map{
+
+	width:1000px;
+
+	svg{
+		
+		path.country{
+
+			fill:#7B7B7B;
+			transition-duration: .3s;
+
+			&:hover {
+				fill: pink;
+				transition-duration: .3s;
+			}
+		}
+	}
+}
