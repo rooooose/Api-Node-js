@@ -1,7 +1,6 @@
 import $ from 'jquery';
 
 
-
 /*
 * Objectif : récupérer une citation aléatoire à partir d'une API et l'afficher
 *
@@ -22,7 +21,9 @@ export default class Map_countries {
 	initEls () {
 		this.$els = {
 			country: $('.country'),
-			infos: $('.infos'),
+			name: $('.name'),
+			population: $('.pop'),
+			flag: $('.flag'),
 		};
 	}
 
@@ -53,16 +54,27 @@ export default class Map_countries {
 		$.getJSON(api.endpoint)
 		.then((response) => {
 			console.log(response);
-			this.renderInfos(response[0].name);
+			this.renderInfos(response[0].name, response[0].population, response[0].flag);
 		})
 		.catch((e) => {
 			console.log('error with the country :', e);
 		});
 	}
 
-	renderInfos(country){
-		this.$els.infos.text(country);
+	renderInfos(name, pop, flag){
+		this.$els.name.text(name);
+		this.$els.population.text(pop);
+		this.$els.flag.text(flag);
 		// this.$els.quoteAuthor.text(author);
 		// this.$els.container.addClass('is-ready');
+		this.makeCircle(pop);
 	}
+
+	makeCircle(population){
+
+    	$('span').css("width", Math.log(population)*10 + "px");
+    	$('span').css("height", Math.log(population)*10 + "px");
+
+	}
+
 }
