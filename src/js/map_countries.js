@@ -44,9 +44,9 @@ export default class Map_countries {
 	getCountry(name){
 		const api = {
 			endpoint: 'http://restcountries.eu/rest/v2/name/'+name,
-			// params: {
-			// 	'per_page':1,
-			// }
+			params: {
+				'per_page':1,
+			}
 		};
 
 		$.ajaxSetup({cache: false});
@@ -61,13 +61,20 @@ export default class Map_countries {
 		});
 	}
 
+	show_image(src, alt) {
+	    var img = $('img');
+	    img.src = src;
+	    img.alt = alt;
+	    img.width = 200;
+
+	    // This next line will just add it to the <body> tag
+	}
+
 	renderInfos(name, pop, flag){
 		this.$els.name.text(name);
 		this.$els.population.text(pop);
-		this.$els.flag.text(flag);
-		// this.$els.quoteAuthor.text(author);
-		// this.$els.container.addClass('is-ready');
 		this.makeCircle(pop);
+		this.show_image(flag, name + " flag");
 	}
 
 	makeCircle(population){
