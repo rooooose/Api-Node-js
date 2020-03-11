@@ -33,6 +33,8 @@ export default class Map_countries {
 
        		let name = $(currentTarget).attr("data-name");
        		console.log(name);
+       		$('img#flag').addClass('active');
+
 
        		this.getCountry(name);
 
@@ -54,27 +56,26 @@ export default class Map_countries {
 		$.getJSON(api.endpoint)
 		.then((response) => {
 			console.log(response);
-			this.renderInfos(response[0].name, response[0].population, response[0].flag);
+			if(response[0].name == "British Indian Ocean Territory"){
+
+				this.renderInfos(response[1].name, response[1].population, response[1].flag);
+			}
+			else{
+				this.renderInfos(response[0].name, response[0].population, response[0].flag);
+			}
 		})
 		.catch((e) => {
 			console.log('error with the country :', e);
 		});
 	}
 
-	show_image(src, alt) {
-	    var img = $('img');
-	    img.src = src;
-	    img.alt = alt;
-	    img.width = 200;
-
-	    // This next line will just add it to the <body> tag
-	}
-
 	renderInfos(name, pop, flag){
 		this.$els.name.text(name);
 		this.$els.population.text(pop);
 		this.makeCircle(pop);
-		this.show_image(flag, name + " flag");
+		$('img#flag').attr('src', flag);
+		$('img#flag').attr('alt', name + " flag");
+		
 	}
 
 	makeCircle(population){

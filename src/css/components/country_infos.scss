@@ -15,8 +15,14 @@ div.infos{
 
 	}
 
-	.flag{
-		width: 400px;
-		height: 400px;
+	img#flag{
+		display:none;
+
+		&.active{
+
+			display: block;
+		}	
 	}
+
+
 }
