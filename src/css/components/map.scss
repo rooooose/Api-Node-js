@@ -10,8 +10,12 @@ div#map{
 			transition-duration: .3s;
 
 			&:hover {
-				fill: pink;
+				fill: $color-sec;
 				transition-duration: .3s;
+			}
+
+			&.active {
+				fill: $color-sec;
 			}
 		}
 	}

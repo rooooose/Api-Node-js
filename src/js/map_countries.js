@@ -1,5 +1,6 @@
 import $ from 'jquery';
-
+import { CountUp } from 'countup.js';
+//import {countUpAnimation} from './helpers/populationHelper';
 
 /*
 * Objectif : récupérer une citation aléatoire à partir d'une API et l'afficher
@@ -23,7 +24,8 @@ export default class Map_countries {
 			country: $('.country'),
 			name: $('.name'),
 			population: $('.pop'),
-			flag: $('.flag'),
+			language: $('.language'),
+			capital: $('.capital'),
 		};
 	}
 
@@ -32,9 +34,16 @@ export default class Map_countries {
 		this.$els.country.on('click', ({currentTarget}) => {
 
        		let name = $(currentTarget).attr("data-name");
+
        		console.log(name);
        		$('img#flag').addClass('active');
-
+       		$('p#pop').addClass('active');
+       		$('p#language').addClass('active');
+       		$('p#capital').addClass('active');
+       		$('h1.title').addClass('inactive');
+       		
+       		$(currentTarget).addClass('active');
+       		this.$els.country.not($(currentTarget)).removeClass('active');
 
        		this.getCountry(name);
 
@@ -58,10 +67,10 @@ export default class Map_countries {
 			console.log(response);
 			if(response[0].name == "British Indian Ocean Territory"){
 
-				this.renderInfos(response[1].name, response[1].population, response[1].flag);
+				this.renderInfos(response[1].name, response[1].population, response[1].flag,  response[1].languages.name, response[1].capital);
 			}
 			else{
-				this.renderInfos(response[0].name, response[0].population, response[0].flag);
+					this.renderInfos(response[0].name, response[0].population, response[0].flag, response[0].languages[0].name, response[0].capital);
 			}
 		})
 		.catch((e) => {
@@ -69,12 +78,15 @@ export default class Map_countries {
 		});
 	}
 
-	renderInfos(name, pop, flag){
+	renderInfos(name, pop, flag, language, capital){
 		this.$els.name.text(name);
 		this.$els.population.text(pop);
+		this.countUpAnimation(pop);
 		this.makeCircle(pop);
 		$('img#flag').attr('src', flag);
 		$('img#flag').attr('alt', name + " flag");
+		this.$els.language.text(language);
+		this.$els.capital.text(capital);
 		
 	}
 
@@ -83,6 +95,21 @@ export default class Map_countries {
     	$('span').css("width", Math.log(population)*10 + "px");
     	$('span').css("height", Math.log(population)*10 + "px");
 
+	}
+
+	countUpAnimation(pop) {
+	
+		const options = {
+		  separator: ' ',
+		  decimal: '',
+		};
+
+		let demo = new CountUp(this.$els.population, pop, options);
+		if (!demo.error) {
+		  demo.start();
+		} else {
+		  console.error(demo.error);
+		}
 	}
 
 }

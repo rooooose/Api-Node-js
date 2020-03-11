@@ -4,13 +4,17 @@ div.infos{
 	width:100%;
 	height:100%;
 
+	h1.inactive{
+		display: none;
+	}
+
 	span{
 
 		border-radius: 50%;
 		display: inline-flex;
   		align-items: center;
   		justify-content: center;
-		background-color: pink;
+		background-color: $color-sec;
 		transition: all 0.2s cubic-bezier(.68,-0.55,.27,1.55);
 
 	}
@@ -22,6 +26,30 @@ div.infos{
 
 			display: block;
 		}	
+	}
+
+	p#capital{
+		display:none;
+
+		&.active{
+			display: block;
+		}
+	}
+
+	p#language{
+		display:none;
+
+		&.active{
+			display: block;
+		}
+	}
+
+	p#pop{
+		display:none;
+
+		&.active{
+			display: block;
+		}
 	}
 
 

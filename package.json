@@ -39,6 +39,8 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "countup": "^1.8.2",
+    "countup.js": "^2.0.4",
     "jquery": "^3.4.1"
   }
 }
