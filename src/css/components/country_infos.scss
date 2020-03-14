@@ -2,13 +2,44 @@ div.infos{
 	
 	display: block;
 	width:100%;
-	height:100%;
+	height:100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-	h1.inactive{
-		display: none;
+	div.title{
+
+		&.inactive{
+				display: none;
+			}
+
+		h1{
+	  	font-size:70px;
+	  	font-family: $font-title;
+	  	margin-bottom: 30px;
+	  	line-height: 80px;
+
+		  	
+		  	span{
+		  		font-family: $font-bold;
+
+		  	}
+  		}
+
+	  	hr{
+	  		display: block;
+	  		background-color: $color-sec;
+	  		width:500px;
+	  		height: 1px;
+	  	}
+
 	}
+	
 
-	span{
+	
+
+	span.pop{
 
 		border-radius: 50%;
 		display: inline-flex;
@@ -19,14 +50,24 @@ div.infos{
 
 	}
 
-	img#flag{
+	div.country_title{
+
+		display: flex;
+
+		img#flag{
 		display:none;
 
 		&.active{
 
 			display: block;
+			height:150px;
 		}	
+
+
+	
 	}
+
+	
 
 	p#capital{
 		display:none;

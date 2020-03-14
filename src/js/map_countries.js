@@ -40,7 +40,7 @@ export default class Map_countries {
        		$('p#pop').addClass('active');
        		$('p#language').addClass('active');
        		$('p#capital').addClass('active');
-       		$('h1.title').addClass('inactive');
+       		$('div.title').addClass('inactive');
        		
        		$(currentTarget).addClass('active');
        		this.$els.country.not($(currentTarget)).removeClass('active');
