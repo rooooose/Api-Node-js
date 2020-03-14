@@ -5,14 +5,13 @@ div.infos{
 	height:100vh;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
 
 	div.title{
 
 		&.inactive{
 				display: none;
-			}
+		}
 
 		h1{
 	  	font-size:70px;
@@ -26,13 +25,6 @@ div.infos{
 
 		  	}
   		}
-
-	  	hr{
-	  		display: block;
-	  		background-color: $color-sec;
-	  		width:500px;
-	  		height: 1px;
-	  	}
 
 	}
 	
@@ -52,46 +44,68 @@ div.infos{
 
 	div.country_title{
 
-		display: flex;
-
-		img#flag{
 		display:none;
 
-		&.active{
+			&.active{
 
-			display: block;
-			height:150px;
-		}	
+				
+				display: flex;
+				align-items: center;
+				margin-bottom: 40px;
 
+			}	
 
-	
+			img.flag{
+				height:100px;
+			}
+
+			div{
+
+				margin-left: 30px;
+
+					h2{
+						font-family: $font-medium;
+						font-size: 35px;
+						width:400px;
+						line-height: 40px;
+						margin-bottom: 20px;
+					}
+
+			}
+
+			
+
+		
+
 	}
 
 	
 
-	p#capital{
+	div.capital_container, div.language_container, div.pop_container{
 		display:none;
 
 		&.active{
-			display: block;
+			display: flex;
+			margin-bottom: 10px;
 		}
+
+		p:first-of-type{
+			font-family: $font-semi-bold;
+		}
+
+		p.space{
+			margin-left: 4px;
+		}
+
 	}
 
-	p#language{
-		display:none;
+	div.pop_container{
+		align-items: center;
 
-		&.active{
-			display: block;
+		span.pop{
+			margin-left: 20px;
+			font-family: $font-semi-bold;
 		}
 	}
-
-	p#pop{
-		display:none;
-
-		&.active{
-			display: block;
-		}
-	}
-
 
 }

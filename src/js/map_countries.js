@@ -36,10 +36,10 @@ export default class Map_countries {
        		let name = $(currentTarget).attr("data-name");
 
        		console.log(name);
-       		$('img#flag').addClass('active');
-       		$('p#pop').addClass('active');
-       		$('p#language').addClass('active');
-       		$('p#capital').addClass('active');
+       		$('div.country_title').addClass('active');
+       		$('div.capital_container').addClass('active');
+       		$('div.language_container').addClass('active');
+       		$('div.pop_container').addClass('active');
        		$('div.title').addClass('inactive');
        		
        		$(currentTarget).addClass('active');
@@ -67,7 +67,7 @@ export default class Map_countries {
 			console.log(response);
 			if(response[0].name == "British Indian Ocean Territory"){
 
-				this.renderInfos(response[1].name, response[1].population, response[1].flag,  response[1].languages.name, response[1].capital);
+				this.renderInfos(response[1].name, response[1].population, response[1].flag,  response[1].languages[0].name, response[1].capital);
 			}
 			else{
 					this.renderInfos(response[0].name, response[0].population, response[0].flag, response[0].languages[0].name, response[0].capital);
@@ -83,8 +83,8 @@ export default class Map_countries {
 		this.$els.population.text(pop);
 		this.countUpAnimation(pop);
 		this.makeCircle(pop);
-		$('img#flag').attr('src', flag);
-		$('img#flag').attr('alt', name + " flag");
+		$('img.flag').attr('src', flag);
+		$('img.flag').attr('alt', name + " flag");
 		this.$els.language.text(language);
 		this.$els.capital.text(capital);
 		
@@ -92,8 +92,8 @@ export default class Map_countries {
 
 	makeCircle(population){
 
-    	$('span').css("width", Math.log(population)*10 + "px");
-    	$('span').css("height", Math.log(population)*10 + "px");
+    	$('span.pop').css("width", Math.log(population)*10 + "px");
+    	$('span.pop').css("height", Math.log(population)*10 + "px");
 
 	}
 
