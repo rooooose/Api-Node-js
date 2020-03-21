@@ -1,4 +1,6 @@
 import $ from 'jquery';
+
+import Background from './background';
 //import {countUpAnimation} from './helpers/populationHelper';
 
 /*
@@ -45,6 +47,8 @@ export default class Map_countries {
        		this.$els.country.not($(currentTarget)).removeClass('active');
 
        		this.getCountry(name);
+
+       		new Background(name);
 
     	});
 

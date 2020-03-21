@@ -12,6 +12,7 @@ class App {
       // Start application
       new Map_countries();
       
+      
     }
 }
 

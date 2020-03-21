@@ -1,9 +1,19 @@
 body {
   font-family: $font-main;
-  background-color: $color-main;
   position: relative;
   height: 100vh;
   color: white;
   overflow: hidden;
+  z-index: 1;
+  animation: fadein 2s;
   
+  div.filter{
+  	position : absolute;
+  	background-color: $background-color;
+  	display: block;
+  	height: 100vh;
+  	width: 100%;
+  	z-index: 2;
+  }
 }
+
