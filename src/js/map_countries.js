@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import { CountUp } from 'countup.js';
 //import {countUpAnimation} from './helpers/populationHelper';
 
 /*
@@ -81,7 +80,6 @@ export default class Map_countries {
 	renderInfos(name, pop, flag, language, capital){
 		this.$els.name.text(name);
 		this.$els.population.text(pop);
-		this.countUpAnimation(pop);
 		this.makeCircle(pop);
 		$('img.flag').attr('src', flag);
 		$('img.flag').attr('alt', name + " flag");
@@ -97,19 +95,6 @@ export default class Map_countries {
 
 	}
 
-	countUpAnimation(pop) {
-	
-		const options = {
-		  separator: ' ',
-		  decimal: '',
-		};
 
-		let demo = new CountUp(this.$els.population, pop, options);
-		if (!demo.error) {
-		  demo.start();
-		} else {
-		  console.error(demo.error);
-		}
-	}
 
 }
