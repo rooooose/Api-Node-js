@@ -1,19 +1,31 @@
-body {
+body{
   font-family: $font-main;
+  display: flex;
   position: relative;
-  height: 100vh;
-  color: white;
   overflow: hidden;
-  z-index: 1;
-  animation: fadein 2s;
-  
-  div.filter{
-  	position : absolute;
-  	background-color: $background-color;
-  	display: block;
-  	height: 100vh;
-  	width: 100%;
-  	z-index: 2;
-  }
+  color: white;
+  height: 100vh;
+  width:100%;
+  z-index:1;
 }
+
+
+  .background {
+    
+    height: 100vh;
+    width:100%;
+    z-index: 2;
+    position: absolute;
+    overflow: hidden;
+
+    
+    div.filter{
+    	position : absolute;
+    	background-color: $background-color;
+    	display: block;
+    	height: 100vh;
+    	width: 100%;
+    	z-index: 3;
+    }
+  }
 

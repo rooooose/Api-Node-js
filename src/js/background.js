@@ -52,8 +52,9 @@ export default class Background {
 	}
 
 	addBackground(image) {
+		
 		this.$els.background.css('background-image', `url(${image.src})`);
-		//this.$els.background.addClass('is-ready');
+		this.$els.background.addClass('is-ready');
 	}
 
 }
