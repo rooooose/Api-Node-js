@@ -13,6 +13,7 @@ div#map{
 			&:hover {
 				fill: $color-sec;
 				transition-duration: .3s;
+				cursor: pointer;
 			}
 
 			&.active {
